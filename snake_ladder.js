@@ -19,7 +19,6 @@ console.log("🐍-----SNAKE & LADDERS-----\n");
 input.question('Enter No Of Players :  ',(reply)=>{
     
     var total_player=parseInt(reply);
-   console.log(total_player);
    
   for(i=0;i<total_player;i++){
     players.push(details());
@@ -30,6 +29,7 @@ function roll(){
     let turn=Math.floor(Math.random()*3);
     let current=player%total_player;
     players[current].rolls++;
+
     if(turn!=2){
     if(players[current].status===0 && dice===1 && turn!=0){
         players[current].status=1;
@@ -64,5 +64,5 @@ function roll(){
     }
 
 }roll();
-}
-)
+ }
+);
