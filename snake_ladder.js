@@ -18,11 +18,7 @@ console.log("🐍-----SNAKE & LADDERS-----\n");
 
 input.question('Enter No Of Players :  ',(reply)=>{
     
-    var total_player=parseInt(reply);
-   
-  for(i=0;i<total_player;i++){
-    players.push(details());
-}
+var total_player=parseInt(reply);
 
 function roll(){
     let dice=Math.floor(Math.random()*6+1);
@@ -63,6 +59,18 @@ function roll(){
         roll();
     }
 
-}roll();
- }
-);
+}
+
+if(total_player>1){
+
+    for(i=0;i<total_player;i++){
+    players.push(details());
+    } roll();
+}
+else{
+    console.log('Enter Valid Players !');
+    
+}
+
+
+ });
