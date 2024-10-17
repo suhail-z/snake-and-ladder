@@ -51,6 +51,17 @@ function play(){
             
             if(players[current].score==100){
                console.log(`\n PLayer ${current+1} Wins !!!`);
+               players=[];
+               input.question('\n Enter "R" to play again or other key to exit: ',(reply)=>{
+                let replay=String(reply).trim();
+                if(replay==='R' || replay==='r'){
+                      play();
+                }
+                else{
+                    console.log('Thanks for playing ;)');
+                    
+                }
+               })
             }
             else if(dice==6 || turn==1){
                 roll();
