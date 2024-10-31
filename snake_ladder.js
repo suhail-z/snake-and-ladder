@@ -3,6 +3,7 @@ const input=readline.createInterface({
     input:process.stdin,
     output:process.stdout
 });
+//interface module for input
 function details(){
     return{
         score:0,
@@ -10,11 +11,13 @@ function details(){
         status:0
     }
 }
+
 var players=[];
 var player=0;
 var properties=['Snake','Ladder','No Play'];
 
 console.log("🐍-----SNAKE & LADDERS-----\n");
+
 function play(){
 
     input.question('Enter No Of Players :  ',(reply)=>{
@@ -47,15 +50,21 @@ function play(){
                 }
             }
         }
-                console.log(`PLAYER ${current+1}\n dice :${dice}\n score :${players[current].score}\n Rolls :${players[current].rolls}\n Turns :${properties[turn]}\n`);
+                console.log(`PLAYER ${current+1}\n 
+                    dice :${dice}\n 
+                    score :${players[current].score}\n 
+                    Rolls :${players[current].rolls}\n
+                    Turns :${properties[turn]}\n`);
             
             if(players[current].score==100){
                console.log(`\n PLayer ${current+1} Wins !!!`);
                players=[];
                input.question('\n Enter "R" to play again or other key to exit: ',(reply)=>{
+                
                 let replay=String(reply).trim();
                 if(replay==='R' || replay==='r'){
-                      play();
+                     
+                    play();
                 }
                 else{
                     console.log('Thanks for playing ;)');
@@ -64,20 +73,22 @@ function play(){
                })
             }
             else if(dice==6 || turn==1){
-                roll();
+            //player is not incremented
             }
             else{
                 player++;
-                roll();
+            
             }
         
         }
         
-        if(total_player>1){
+        if( !isNaN(total_player) && total_player>1 ){
         
             for(i=0;i<total_player;i++){
             players.push(details());
-            } roll();
+            } 
+            setInterval(function(){
+                roll()},500);
         }
         else{
             console.log('Enter Valid Players !');
